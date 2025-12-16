@@ -1,0 +1,143 @@
+.document-manager {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.doc-list-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.add-doc-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-doc-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.add-doc-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.add-doc-form button:hover {
+  background-color: #2980b9;
+}
+
+.doc-list {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.doc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: white;
+}
+
+.doc-item:hover {
+  border-color: #3498db;
+  background-color: #f8fafc;
+}
+
+.doc-item.active {
+  border-color: #3498db;
+  background-color: #ebf8ff;
+}
+
+.doc-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.delete-btn {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  background-color: #fafafa;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+}
+
+.doc-content-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  min-height: calc(100vh - 160px);
+}
+
+.no-selection {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.no-selection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+@media (max-width: 968px) {
+  .document-manager {
+    grid-template-columns: 1fr;
+  }
+  
+  .doc-list-section {
+    max-height: 300px;
+  }
+}

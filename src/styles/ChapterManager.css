@@ -1,0 +1,195 @@
+.chapter-manager {
+  width: 100%;
+}
+
+.chapter-header h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.chapter-controls {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.add-chapter-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-chapter-form input {
+  flex: 1;
+  padding: 0.875rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.add-chapter-form button {
+  padding: 0.875rem 1.75rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.add-chapter-form button:hover {
+  background-color: #27ae60;
+}
+
+.chapter-list {
+  margin-top: 1.5rem;
+}
+
+.chapter-item {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  background-color: #fafafa;
+}
+
+.chapter-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.delete-chapter-btn {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s;
+}
+
+.delete-chapter-btn:hover {
+  background-color: #c0392b;
+}
+
+.chapter-actions {
+  margin-bottom: 1rem;
+}
+
+.edit-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.edit-btn.active {
+  background-color: #27ae60;
+}
+
+.content-editor {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.content-editor textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.editor-actions button {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.editor-actions button:first-child {
+  background-color: #27ae60;
+  color: white;
+}
+
+.editor-actions button:first-child:hover {
+  background-color: #229954;
+}
+
+.editor-actions button:last-child {
+  background-color: #95a5a6;
+  color: white;
+}
+
+.editor-actions button:last-child:hover {
+  background-color: #7f8c8d;
+}
+
+.content-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.content-preview h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
+}
+
+.preview-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  white-space: pre-line;
+}
+
+.preview-content p {
+  margin-bottom: 0.5rem;
+}
+
+.preview-content p:last-child {
+  margin-bottom: 0;
+}
+
+.empty-chapters {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  background-color: white;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+}
