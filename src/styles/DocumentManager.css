@@ -1,143 +1,695 @@
+/* Element Plus 风格 - 文档管理器样式（优化：更紧致，视觉区分明显） */
 .document-manager {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  height: calc(100vh - 60px);
+  max-width: 100%;
+  margin: 0;
+  background-color: #f5f7fa;
 }
 
 .doc-list-section {
   background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  height: fit-content;
-  max-height: calc(100vh - 160px);
+  border-right: 2px solid #e4e7ed;
+  padding: 16px;
+  height: 100%;
   overflow-y: auto;
+  box-shadow: 2px 0 8px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.search-section {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e4e7ed;
 }
 
 .section-header {
-  margin-bottom: 1.5rem;
-}
-
-.section-header h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-
-.add-doc-form {
+  margin-bottom: 16px;
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e4e7ed;
 }
 
-.add-doc-form input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.95rem;
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #303133;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.add-doc-form button {
-  padding: 0.75rem 1.5rem;
-  background-color: #3498db;
-  color: white;
+.title-indicator {
+  width: 4px;
+  height: 16px;
+  background-color: #5584FF;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.title-indicator.orange {
+  background-color: #E6A23C;
+}
+
+.add-doc-btn-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #5584FF;
   border: none;
-  border-radius: 4px;
+  color: white;
   cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(85, 132, 255, 0.3);
+  flex-shrink: 0;
 }
 
-.add-doc-form button:hover {
-  background-color: #2980b9;
-}
-
-.doc-list {
-  border-top: 1px solid #eee;
-  padding-top: 1rem;
+.add-doc-btn-circle:hover {
+  background-color: #6A9AFF;
+  box-shadow: 0 4px 8px rgba(85, 132, 255, 0.4);
 }
 
 .doc-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.875rem;
-  border: 1px solid #eee;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #e4e7ed;
   border-radius: 4px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   background-color: white;
+  color: #303133;
+
 }
 
 .doc-item:hover {
-  border-color: #3498db;
-  background-color: #f8fafc;
+  border-color: #5584FF;
+  background-color: rgba(85, 132, 255, 0.1);
+  color: #5584FF;
 }
 
 .doc-item.active {
-  border-color: #3498db;
-  background-color: #ebf8ff;
+  border-color: #5584FF;
+  background-color: rgba(85, 132, 255, 0.1);
+}
+
+.doc-item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .doc-title {
   flex: 1;
   font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.doc-item-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.doc-item:hover .doc-item-actions {
+  opacity: 1;
+}
+
+.edit-doc-btn,
 .delete-btn {
-  padding: 0.5rem 1rem;
-  background-color: #e74c3c;
-  color: white;
+  width: 26px;
+  height: 26px;
+  padding: 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.875rem;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #606266;
+}
+
+.edit-doc-btn:hover {
+  background-color: rgba(85, 132, 255, 0.1);
+  color: #5584FF;
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  background-color: #fef0f0;
+  color: #f56c6c;
+}
+
+
+.search-result-info {
+  padding: 10px 12px;
+  background-color: rgba(85, 132, 255, 0.1);
+  border: 1px solid rgba(85, 132, 255, 0.3);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #5584FF;
+  font-weight: 500;
 }
 
 .empty-state {
   text-align: center;
-  padding: 3rem 1rem;
-  color: #666;
+  padding: 50px 20px;
+  color: #909399;
   background-color: #fafafa;
-  border: 1px dashed #ddd;
+  border: 1px dashed #dcdfe6;
   border-radius: 4px;
+  font-size: 13px;
 }
 
 .doc-content-section {
   background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  min-height: calc(100vh - 160px);
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  border-left: 1px solid #e4e7ed;
 }
 
 .no-selection {
   text-align: center;
-  padding: 4rem 2rem;
-  color: #666;
+  padding: 100px 40px;
+  color: #909399;
 }
 
 .no-selection h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #606266;
+}
+
+.no-selection p {
+  font-size: 13px;
+  color: #909399;
+}
+
+.document-preview {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e4e7ed;
+}
+
+.preview-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #303133;
+  margin: 0;
+}
+
+.back-to-edit-btn {
+  padding: 8px 16px;
+  background-color: #5584FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(85, 132, 255, 0.3);
+}
+
+.back-to-edit-btn:hover {
+  background-color: #6A9AFF;
+  box-shadow: 0 4px 8px rgba(85, 132, 255, 0.4);
+}
+
+.preview-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.preview-chapter {
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.preview-chapter:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.preview-chapter-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #303133;
+  margin-bottom: 12px;
+}
+
+.preview-chapter-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #606266;
+  white-space: pre-line;
+}
+
+.preview-chapter-content p {
+  margin-bottom: 10px;
+}
+
+.preview-chapter-content p:last-child {
+  margin-bottom: 0;
+}
+
+.preview-empty-content {
+  color: #c0c4cc;
+  font-style: italic;
+  padding: 12px;
+  background-color: #f5f7fa;
+  border-radius: 4px;
+}
+
+.empty-preview {
+  text-align: center;
+  padding: 60px 40px;
+  color: #909399;
+}
+
+.empty-preview p {
+  font-size: 14px;
 }
 
 @media (max-width: 968px) {
   .document-manager {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
-  
+
   .doc-list-section {
-    max-height: 300px;
+    border-right: none;
+    border-bottom: 2px solid #e4e7ed;
   }
+}
+
+/* 搜索栏样式 - Element Plus 风格 */
+.search-bar-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e4e7ed;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar-form:focus-within {
+  border-color: #5584FF;
+  box-shadow: 0 1px 4px 0 rgba(85, 132, 255, 0.2);
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  border: none;
+  font-size: 13px;
+  color: #303133;
+  background: transparent;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #c0c4cc;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #909399;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 36px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #c0c4cc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.clear-btn:hover {
+  background: #f5f7fa;
+  color: #606266;
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    padding: 0;
+  }
+
+  .search-bar-form {
+    flex-wrap: wrap;
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+  }
+}
+
+/* 确认对话框样式 - Element Plus 风格 */
+.confirm-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirm-dialog-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 420px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.confirm-dialog-header {
+  padding: 20px 20px 10px;
+}
+
+.confirm-dialog-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.confirm-dialog-body {
+  padding: 10px 20px;
+}
+
+.confirm-dialog-body p {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px;
+  border-top: 1px solid #e4e7ed;
+}
+
+.confirm-dialog-btn {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.confirm-dialog-btn-cancel {
+  background-color: white;
+  color: #606266;
+  border: 1px solid #dcdfe6;
+}
+
+.confirm-dialog-btn-cancel:hover {
+  color: #5584FF;
+  border-color: #c6e2ff;
+  background-color: rgba(85, 132, 255, 0.1);
+}
+
+.confirm-dialog-btn-confirm {
+  background-color: #5584FF;
+  color: white;
+}
+
+.confirm-dialog-btn-confirm:hover {
+  background-color: #6A9AFF;
+}
+
+
+/* 文档弹窗样式 - Element Plus 风格 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #909399;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #f5f7fa;
+  color: #606266;
+}
+
+.modal-form {
+  padding: 20px;
+}
+
+.modal-form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.modal-form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.modal-form-group label {
+  display: block;
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.modal-form-group input,
+.modal-form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #303133;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.modal-form-group input:focus,
+.modal-form-group textarea:focus {
+  outline: none;
+  border-color: #5584FF;
+}
+
+.modal-form-group input::placeholder,
+.modal-form-group textarea::placeholder {
+  color: #c0c4cc;
+}
+
+.modal-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.modal-error {
+  display: block;
+  font-size: 12px;
+  color: #f56c6c;
+  margin-top: 6px;
+  line-height: 1.5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-char-count {
+  text-align: right;
+  font-size: 12px;
+  color: #909399;
+  margin-top: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e4e7ed;
+}
+
+.modal-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.modal-btn-cancel {
+  background-color: white;
+  color: #606266;
+  border: 1px solid #dcdfe6;
+}
+
+.modal-btn-cancel:hover {
+  color: #5584FF;
+  border-color: #c6e2ff;
+  background-color: rgba(85, 132, 255, 0.1);
+}
+
+.modal-btn-submit {
+  background-color: #5584FF;
+  color: white;
+}
+
+.modal-btn-submit:hover {
+  background-color: #6A9AFF;
 }

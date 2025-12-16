@@ -1,195 +1,652 @@
+/* Element Plus 风格 - 章节管理器样式（优化：更紧致，视觉区分明显） */
 .chapter-manager {
   width: 100%;
 }
 
-.chapter-header h2 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-}
-
-.chapter-controls {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #eee;
-}
-
-.add-chapter-form {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.add-chapter-form input {
-  flex: 1;
-  padding: 0.875rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.95rem;
-}
-
-.add-chapter-form button {
-  padding: 0.875rem 1.75rem;
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s;
-}
-
-.add-chapter-form button:hover {
-  background-color: #27ae60;
-}
-
-.chapter-list {
-  margin-top: 1.5rem;
-}
-
-.chapter-item {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
-  background-color: #fafafa;
-}
-
-.chapter-title {
+.chapter-header {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e4e7ed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.1rem;
+  gap: 16px;
+}
+
+.doc-title-section {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-header h2 {
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: #2c3e50;
+  line-height: 1.4;
+  color: #303133;
+  margin: 0;
 }
 
+.chapter-count {
+  font-size: 13px;
+  color: #909399;
+  font-weight: normal;
+}
+
+.preview-doc-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #5584FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(85, 132, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.preview-doc-btn:hover {
+  background-color: #6A9AFF;
+  box-shadow: 0 4px 8px rgba(85, 132, 255, 0.4);
+}
+
+.chapter-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.chapter-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapter-search-section {
+  flex-shrink: 0;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.chapter-search-section .search-bar-container {
+  padding: 0;
+}
+
+.chapter-search-section .search-bar-form {
+  border-radius: 4px;
+}
+
+.chapter-search-section .search-input-wrapper {
+  flex: 1;
+}
+
+@media (max-width: 968px) {
+  .chapter-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .chapter-header-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .chapter-search-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .add-chapter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 搜索栏样式 - Element Plus 风格 */
+.search-bar-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search-bar-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e4e7ed;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  border: none;
+  font-size: 13px;
+  color: #303133;
+  background: transparent;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #c0c4cc;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #909399;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 36px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #c0c4cc;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.clear-btn:hover {
+  background: #f5f7fa;
+  color: #606266;
+}
+
+@media (max-width: 768px) {
+  .search-bar-container {
+    padding: 0;
+  }
+
+  .search-bar-form {
+    flex-wrap: wrap;
+  }
+
+  .search-input-wrapper {
+    width: 100%;
+  }
+}
+
+/* 确认对话框样式 - Element Plus 风格 */
+.confirm-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.confirm-dialog-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 420px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.confirm-dialog-header {
+  padding: 20px 20px 10px;
+}
+
+.confirm-dialog-header h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.confirm-dialog-body {
+  padding: 10px 20px;
+}
+
+.confirm-dialog-body p {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px;
+  border-top: 1px solid #e4e7ed;
+}
+
+.confirm-dialog-btn {
+  padding: 9px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.confirm-dialog-btn-cancel {
+  background-color: white;
+  color: #606266;
+  border: 1px solid #dcdfe6;
+}
+
+.confirm-dialog-btn-cancel:hover {
+  color: #5584FF;
+  border-color: #c6e2ff;
+  background-color: rgba(85, 132, 255, 0.1);
+}
+
+.confirm-dialog-btn-confirm {
+  background-color: #5584FF;
+  color: white;
+}
+
+.confirm-dialog-btn-confirm:hover {
+  background-color: #6A9AFF;
+}
+
+/* 章节弹窗样式 - Element Plus 风格 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.chapter-modal .modal-container {
+  max-width: 600px;
+  max-height: 85vh;
+}
+
+.chapter-modal .modal-form {
+  max-height: calc(85vh - 120px);
+  overflow-y: auto;
+}
+
+.chapter-modal .modal-form-group textarea {
+  min-height: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #909399;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background-color: #f5f7fa;
+  color: #606266;
+}
+
+.modal-form {
+  padding: 20px;
+}
+
+.modal-form-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.modal-form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.modal-form-group label {
+  display: block;
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.modal-form-group input,
+.modal-form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #303133;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.modal-form-group input:focus,
+.modal-form-group textarea:focus {
+  outline: none;
+  border-color: #5584FF;
+}
+
+.modal-form-group input::placeholder,
+.modal-form-group textarea::placeholder {
+  color: #c0c4cc;
+}
+
+.modal-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.modal-error {
+  display: block;
+  font-size: 12px;
+  color: #f56c6c;
+  margin-top: 6px;
+  line-height: 1.5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-char-count {
+  text-align: right;
+  font-size: 12px;
+  color: #909399;
+  margin-top: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e4e7ed;
+}
+
+.modal-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+.modal-btn-cancel {
+  background-color: white;
+  color: #606266;
+  border: 1px solid #dcdfe6;
+}
+
+.modal-btn-cancel:hover {
+  color: #5584FF;
+  border-color: #c6e2ff;
+  background-color: rgba(85, 132, 255, 0.1);
+}
+
+.modal-btn-submit {
+  background-color: #5584FF;
+  color: white;
+}
+
+.modal-btn-submit:hover {
+  background-color: #6A9AFF;
+}
+
+
+.chapter-search-result-info {
+  padding: 8px 12px;
+  background-color: rgba(85, 132, 255, 0.1);
+  border: 1px solid rgba(85, 132, 255, 0.3);
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #5584FF;
+  font-weight: 500;
+}
+
+.add-chapter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: #5584FF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(85, 132, 255, 0.3);
+}
+
+.add-chapter-btn:hover {
+  background-color: #6A9AFF;
+  box-shadow: 0 4px 8px rgba(85, 132, 255, 0.4);
+}
+
+.chapter-list {
+  margin-top: 0;
+}
+
+.chapter-item {
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  padding: 14px;
+  margin-bottom: 12px;
+  background-color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.chapter-item:hover {
+  border: 1px solid #5584FF;
+  box-shadow: 0 2px 8px rgba(64, 158, 255, 0.15);
+  background-color: #f5f9ff;
+}
+
+.chapter-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chapter-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #E6A23C;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 0;
+  box-shadow: 0 2px 4px rgba(230, 162, 60, 0.3);
+  transition: all 0.3s ease;
+}
+
+.chapter-item:hover .chapter-number {
+  box-shadow: 0 4px 8px rgba(230, 162, 60, 0.4);
+}
+
+.chapter-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chapter-title-text {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.chapter-item:hover .chapter-title-text {
+  color: #5584FF;
+}
+
+.chapter-content-preview {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #909399;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.chapter-actions-right {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.chapter-item:hover .chapter-actions-right {
+  opacity: 1;
+}
+
+.edit-btn,
 .delete-chapter-btn {
-  padding: 0.5rem 1rem;
-  background-color: #e74c3c;
-  color: white;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.875rem;
-  transition: background-color 0.3s;
-}
-
-.delete-chapter-btn:hover {
-  background-color: #c0392b;
-}
-
-.chapter-actions {
-  margin-bottom: 1rem;
-}
-
-.edit-btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #606266;
 }
 
 .edit-btn:hover {
-  background-color: #2980b9;
+  background-color: rgba(85, 132, 255, 0.1);
+  color: #5584FF;
 }
 
-.edit-btn.active {
-  background-color: #27ae60;
-}
-
-.content-editor {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.content-editor textarea {
-  width: 100%;
-  padding: 1rem;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  resize: vertical;
-  margin-bottom: 1rem;
-}
-
-.editor-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: flex-end;
-}
-
-.editor-actions button {
-  padding: 0.625rem 1.25rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
-}
-
-.editor-actions button:first-child {
-  background-color: #27ae60;
-  color: white;
-}
-
-.editor-actions button:first-child:hover {
-  background-color: #229954;
-}
-
-.editor-actions button:last-child {
-  background-color: #95a5a6;
-  color: white;
-}
-
-.editor-actions button:last-child:hover {
-  background-color: #7f8c8d;
-}
-
-.content-preview {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.content-preview h4 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #2c3e50;
-}
-
-.preview-content {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #444;
-  white-space: pre-line;
-}
-
-.preview-content p {
-  margin-bottom: 0.5rem;
-}
-
-.preview-content p:last-child {
-  margin-bottom: 0;
+.delete-chapter-btn:hover {
+  background-color: #fef0f0;
+  color: #f56c6c;
 }
 
 .empty-chapters {
   text-align: center;
-  padding: 3rem 1rem;
-  color: #666;
-  background-color: white;
-  border: 1px dashed #ddd;
-  border-radius: 8px;
+  padding: 40px 20px;
+  color: #909399;
+  background-color: #fafafa;
+  border: 1px dashed #dcdfe6;
+  border-radius: 4px;
+  font-size: 13px;
 }
